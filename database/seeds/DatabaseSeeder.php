@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
 	        	'name' => 'Indira Gandhi Stadium',
 	        	'cells_x' => 4,
 	        	'cells_y' => 10,
-	        	'latitude' => 40.53,
-	        	'longitude' => -73.23
+	        	'latitude' => 40.72,
+	        	'longitude' => -73.92
 
         	]
         ]);

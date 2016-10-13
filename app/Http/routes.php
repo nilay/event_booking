@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'api'], function () {
+    Route::resource('events', 'Api\\EventsController', ['only' => ['index']]);
+});
+
+Route::resource('events.book', 'BookingsController');
+Route::resource('events.hall', 'HallsController');
+
