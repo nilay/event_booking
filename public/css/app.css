@@ -8,6 +8,10 @@ html, body {
     height: 100%;
 }
 
+table{
+    table-layout: fixed
+}
+
 table, th, td {
    border: 0px;
    border-spacing: 10px;

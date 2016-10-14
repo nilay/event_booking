@@ -16,7 +16,8 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'api'], function () {
-    Route::resource('events', 'Api\\EventsController', ['only' => ['index']]);
+    Route::resource('events', 'Api\\EventsController', ['only' => ['index', 'show']]);
+    Route::get('event/halldata/{id}', 'Api\\EventsController@hallBookingData');
 });
 
 Route::resource('events.book', 'BookingsController');

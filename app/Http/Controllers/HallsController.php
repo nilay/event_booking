@@ -9,7 +9,8 @@ class HallsController extends Controller
 		$event = Event::with('hall')->find($id);
 		$hallMapData = $event->getHallMapData();
 
-		return view('halls/index', ['event'=>$event, 'hall_map_data'=>$hallMapData]);
+		//return view('halls/index', ['event'=>$event, 'hall_map_data'=>$hallMapData]);
+		return view('halls/reactindex');
 		
 	}
 }
