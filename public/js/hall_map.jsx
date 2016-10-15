@@ -91,7 +91,7 @@ var StandGrid = React.createClass({
 
 });
 
-ReactDOM.render(<StandGrid eventId="1" />, document.getElementById('root'));
+ReactDOM.render(<StandGrid eventId={eventId} />, document.getElementById('root'));
 
 
 

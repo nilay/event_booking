@@ -4,8 +4,10 @@
 <div class="container-narrow">
 	<div class="row">
 	<div class="col-mt-12">
-		<div id="root">
-		</div>
+		@if(Session::has('message'))
+			<p class="alert alert-info">{{ Session::get('message') }}</p>
+		@endif
+		<div id="root"></div>
 	</div>
 	</div>
 </div>	
@@ -20,8 +22,15 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Book Your Stand</h4>
       </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
+      <div class="modal-body row">
+      	
+      		<div class="col-md-6">
+      			<img src=""/>
+      		</div>
+      		<div class="col-md-6">
+      			<p>Some text in the modal.</p>
+      		</div>	
+        
       </div>
       <div class="modal-footer">
         <a href="" class="btn btn-default">Reserve</a>
@@ -33,12 +42,13 @@
 
 
 @endsection
-
-@section('head_js')
-	{{ Html::script('js/hall_map.jsx', ['type'=>'text/babel']) }}
-@endsection
-
 @section('additional_js')
+<script>
+	var eventId = '{{$event->id}}';
+</script>	
+
+
+{{ Html::script('js/hall_map.jsx', ['type'=>'text/babel']) }}
 <script>
 //triggered when modal is about to be shown
 $('#book-stand-proceed').on('show.bs.modal', function(e) {
@@ -47,7 +57,8 @@ $('#book-stand-proceed').on('show.bs.modal', function(e) {
     var standId = $(e.relatedTarget).data('stand-id');
 
     //set proceed booking url
-    $(e.currentTarget).find('a').attr('href', '/events/'+standId + '/book');
+    $(e.currentTarget).find('a').attr('href', '/events/'+eventId + '/book/?stand_id='+standId);
 });
 </script>
+
 @endsection

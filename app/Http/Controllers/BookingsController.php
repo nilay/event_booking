@@ -23,6 +23,7 @@ class BookingsController extends Controller
 			'admin_email' => $request->input('email')
 		]);
 		
+		$request->session()->flash('message', 'Reservation done successfully!');
 		return redirect("/events/$event_id/hall");
 	}
 }

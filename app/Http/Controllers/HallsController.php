@@ -10,7 +10,7 @@ class HallsController extends Controller
 		$hallMapData = $event->getHallMapData();
 
 		//return view('halls/index', ['event'=>$event, 'hall_map_data'=>$hallMapData]);
-		return view('halls/reactindex');
+		return view('halls/reactindex', ['event'=>$event]);
 		
 	}
 }

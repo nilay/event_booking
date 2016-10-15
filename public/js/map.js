@@ -39,6 +39,6 @@ function getEventInfo(event){
 	return '<h5>' + event.name + '</h5>' +
 		'<p>At ' + event.hall.name + '</p>' +
 		'<p>From: <span style="color:blue">' + new Date(event.from_date).toLocaleDateString() + '</span>&nbsp; To:  <span style="color:blue">' + new Date(event.to_date).toLocaleDateString() + '</span></p>' +
-		'<p class="pull-right"><a class="btn btn-primary" href="/event/' + event.id + '/book"> Book your place </a></p>';
+		'<p class="pull-right"><a class="btn btn-primary" href="/events/' + event.id + '/hall"> Book your place </a></p>';
 }
 
