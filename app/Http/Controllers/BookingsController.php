@@ -4,12 +4,32 @@ use Illuminate\Http\Request;
 use App\Models\Booking;
 class BookingsController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Booking Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the reservation of stand for given event
+    |
+    */
+
+    /**
+     * Create a new reservation form.
+     *
+     * @return void
+     */
 	public function index(Request $request, $id)
 	{
 
 		return view('bookings/index', ['event_id' => $id, 'stand_id'=>$request->input('stand_id')]);
 	}
 
+    /**
+     * Create a new booking instance in db.
+     *
+     * @param  array  $request
+     * @return void
+     */
 	public function store(Request $request)
 	{
 		$event_id = $request->input('event_id');

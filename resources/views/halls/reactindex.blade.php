@@ -25,10 +25,10 @@
       <div class="modal-body row">
       	
       		<div class="col-md-6">
-      			<img src=""/>
+      			<p> No stand image provided</p>
       		</div>
       		<div class="col-md-6">
-      			<p>Some text in the modal.</p>
+      			<p>No Description for this stand</p>
       		</div>	
         
       </div>

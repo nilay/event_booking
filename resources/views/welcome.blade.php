@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    <!-- map container -->
     <div id="map"></div>      
 
     {{ Html::script('js/map.js') }}

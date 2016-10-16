@@ -1,3 +1,6 @@
+/**
+  * Google map with plotted event 
+  */
 
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -8,10 +11,14 @@ function initMap() {
     markMap(map);
 }
 
+/**
+ * plot marker for each event
+ */
 function markMap(map){
 
 	var infowindow = new google.maps.InfoWindow();
 
+	// fetch events list from server
 	$.getJSON( "api/events", function( data ) {
 	  $.each( data, function( key, event ) {
 		
@@ -35,6 +42,9 @@ function markMap(map){
 	});
 }
 
+/**
+ * content for popup 
+ */
 function getEventInfo(event){
 	return '<h5>' + event.name + '</h5>' +
 		'<p>At ' + event.hall.name + '</p>' +

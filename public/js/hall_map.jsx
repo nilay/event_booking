@@ -1,5 +1,11 @@
-var BookedStand = React.createClass({
+/**
+ * React components to render virtual hall and its
+ * booking data
+ */
 
+
+var BookedStand = React.createClass({
+	// generate cell of booked cell
 	render: function(){
 		return (
 			<td className="booked-stand" data-stand-id={this.props.standdata.stand_id}>
@@ -10,7 +16,7 @@ var BookedStand = React.createClass({
 });
 
 var VacantStand = React.createClass({
-
+	// generate cell of vacant stand
 	render: function(){
 		return(
 			<td className="vacant-stand cursor-hand" data-stand-id={this.props.standdata.stand_id} data-toggle="modal" data-target="#book-stand-proceed"></td>
@@ -19,6 +25,7 @@ var VacantStand = React.createClass({
 });
 
 var VoidStand = React.createClass({
+	// cell which is not stand in hall stand grid
 	render: function(){
 		return <td></td>
 	}
@@ -26,7 +33,10 @@ var VoidStand = React.createClass({
 
 
 var GridRow = React.createClass({
-
+	
+	/**
+	 * build row of exposition hall virtual map
+	 */
 
 	render: function(){
 		var row = [];
@@ -53,6 +63,12 @@ var GridRow = React.createClass({
 	}
 });
 
+
+
+/** 
+ * React component to create virtual map exposition hall
+ */
+
 var StandGrid = React.createClass({
 
 	getInitialState: function() {
@@ -61,6 +77,10 @@ var StandGrid = React.createClass({
         };
     },
 
+    /*
+     * fetch exposition hall data and booking information
+     * for given event 
+     */
     componentDidMount: function(){
         var that = this;
         $.getJSON('/api/event/halldata/' + this.props.eventId, function (data) {
@@ -69,6 +89,8 @@ var StandGrid = React.createClass({
     },
 
 	render: function () {
+	  	
+	  	// making sure exposition hall data are loaded
 	  	if(this.state.hallData){
 
 		  	var l = [];
@@ -85,6 +107,7 @@ var StandGrid = React.createClass({
 
 		}
 
+		// exposition hall data has not been loaded yet
 		return <div>Loading...</div>;
 	}
 

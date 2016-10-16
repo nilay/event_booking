@@ -4,16 +4,18 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class BookingApiTest extends TestCase
 {
     /**
-     * A basic functional test example.
+     * A booking API test
      *
      * @return void
      */
-    public function testBasicExample()
+    public function testEBookingApi()
     {
-        $this->visit('/')
-             ->see('Laravel 5');
+        $this->get('/api/event/halldata/1')
+             ->seeJson([
+                 'is_stand' => true,
+        	]);
     }
 }

@@ -15,11 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
+ * API routs used by react JS component.
+ */
 Route::group(['prefix' => 'api'], function () {
     Route::resource('events', 'Api\\EventsController', ['only' => ['index', 'show']]);
     Route::get('event/halldata/{id}', 'Api\\EventsController@hallBookingData');
 });
 
+
+/*
+ * other routes for regular page
+ */
 Route::resource('events.book', 'BookingsController');
 Route::resource('events.hall', 'HallsController');
-
